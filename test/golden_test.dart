@@ -29,12 +29,12 @@ void main() {
         'standard': (
           AngolaPlates.standard,
           AngolaThemes.standard,
-          'L D 3 8 7 5 C L',
+          'LD 38 75 CL',
         ),
         'stacked': (
           AngolaPlates.stacked,
           AngolaThemes.stacked,
-          'L D 1 7 9 9 D X',
+          'LD 17 99 DX',
         ),
       };
 

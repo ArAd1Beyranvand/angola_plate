@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:plate_alphabet/plate_alphabet.dart';
 import 'package:plate_core/plate_core.dart';
 
@@ -113,21 +115,25 @@ abstract final class AngolaPlates {
     final labels = <PlateLabel>[];
     for (final row in rows) {
       for (final (key, centre) in row.runs) {
-        final start = slots.length;
         final letters = key == 'region' || key == 'suffix';
-        slots.addAll(
-          plateRegister(
+        // One two-character field over both cells; the spacing brings the
+        // font's ~0.6 em advance (glyph at 0.72 of the box) up to the pitch.
+        groups.add(PlateTextGroup(<int>[slots.length], key: key));
+        slots.add(
+          PlateSlot(
             alphabet: letters
                 ? AngolaAlphabets.letters
                 : AngolaAlphabets.digits,
-            count: 2,
-            left: centre - row.pitch,
-            top: row.cy - row.box / 2,
-            width: row.pitch,
-            height: row.box,
+            box: PlateBox(
+              centre - row.pitch,
+              row.cy - row.box / 2,
+              2 * row.pitch,
+              row.box,
+            ),
+            length: 2,
+            spacing: max(0, row.pitch - 0.6 * 0.72 * row.box),
           ),
         );
-        groups.add(PlateTextGroup(<int>[start, start + 1], key: key));
       }
       for (final dx in row.dashes) {
         labels.add(
