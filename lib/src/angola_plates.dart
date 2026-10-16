@@ -8,9 +8,6 @@ import 'angola_themes.dart';
 
 /// Where the ink sits on the 1996 Angolan plates, in plate units.
 ///
-/// The format is AA-##-##-AA: a region code, two pairs of digits and two
-/// letters. Two designs print it.
-///
 /// **One row** (`Angola_license_plate_graphic`, vector artwork, 520×110 as the
 /// article gives): ink y 19.5–90.5 (71 tall, cy 55); cell centres at a pitch of
 /// 45 — pairs centred 79, 197.7, 320.7, 439.5 — and dashes at 137, 261.6,
@@ -46,15 +43,11 @@ abstract final class _Layout {
   static const List<double> bottomDashes = <double>[174, 366];
 }
 
-/// Angola's licence plates: two designs of the same format.
+/// Two designs of AA-##-##-AA with groups `region`, `first`, `second`,
+/// `suffix`: [standard] on one row, [stacked] with the region on its own row.
 ///
-/// * [standard] — one row, `region`, `first`, `second`, `suffix`.
-/// * [stacked] — the region on its own row above the rest; same groups.
-///
-/// Both pair with the theme in [themeOf]. The article lists the 1955–1996
-/// AAA-##-## series (no usable image) and a 2024 redesign it leaves blank;
-/// neither is implemented. It gives no regional list beyond `LD` (Luanda) and
-/// nothing Israel-specific. The flag is not printed on any plate.
+/// Both pair with the theme in [themeOf]. The earlier AAA-##-## series and the
+/// 2024 redesign are not implemented.
 abstract final class AngolaPlates {
   static final PlateSpec standard = _build(
     'ao.standard',
@@ -164,8 +157,7 @@ abstract final class AngolaPlates {
   }
 }
 
-/// One measured row: its centre line, slot height, pitch, the pair runs by
-/// group key and centre, and where the dashes sit.
+/// A measured row: `runs` are pair groups by key and centre x.
 class _Row {
   const _Row({
     required this.cy,

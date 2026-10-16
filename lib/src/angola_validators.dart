@@ -1,7 +1,7 @@
 import 'package:plate_core/plate_core.dart';
 
-/// Judges a plate in the article's AA-##-##-AA: a two-letter region code, two
-/// pairs of digits and two letters. Reports, never bars a keystroke.
+/// Judges AA-##-##-AA: a two-letter region code, two pairs of digits and two
+/// letters. Reports, never bars a keystroke.
 class AngolaValidator extends GatedPlateValidator {
   const AngolaValidator();
 
