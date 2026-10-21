@@ -12,7 +12,9 @@ class AngolaValidator extends GatedPlateValidator {
   static const String reasonDigits = 'The number is two pairs of digits.';
   static const String reasonSuffix = 'The series is two letters.';
 
-  static bool _letters(String s) => RegExp(r'^[A-Z]{2}$').hasMatch(s);
+  static final RegExp _pair = RegExp(r'^[A-Z]{2}$');
+
+  static bool _letters(String s) => _pair.hasMatch(s);
 
   @override
   PlateValidation judge(PlateEntry entry) {
