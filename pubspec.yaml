@@ -1,7 +1,7 @@
 name: angola_plate
 description: "Angola's licence plates for the plate_core library — the 1996 white-on-black series, themes, alphabets, advisory validator."
 version: 0.1.0
-publish_to: none
+repository: https://github.com/ArAd1Beyranvand/angola_plate
 resolution: workspace
 
 environment:
