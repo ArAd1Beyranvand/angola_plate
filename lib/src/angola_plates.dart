@@ -83,7 +83,11 @@ abstract final class AngolaPlates {
         cy: _Layout.bottomCy,
         box: _Layout.bottomBox,
         pitch: _Layout.bottomPitch,
-        runs: <(String, double)>[('first', 76), ('second', 270.3), ('suffix', 448.3)],
+        runs: <(String, double)>[
+          ('first', 76),
+          ('second', 270.3),
+          ('suffix', 448.3),
+        ],
         dashes: _Layout.bottomDashes,
       ),
     ],
@@ -94,7 +98,11 @@ abstract final class AngolaPlates {
 
   static List<PlateSpec> get all => <PlateSpec>[standard, stacked];
 
-  static PlateSpec _build(String id, {required double height, required List<_Row> rows}) {
+  static PlateSpec _build(
+    String id, {
+    required double height,
+    required List<_Row> rows,
+  }) {
     final slots = <PlateSlot>[];
     final groups = <PlateTextGroup>[];
     final labels = <PlateLabel>[];
@@ -106,8 +114,15 @@ abstract final class AngolaPlates {
         groups.add(PlateTextGroup(<int>[slots.length], key: key));
         slots.add(
           PlateSlot(
-            alphabet: letters ? AngolaAlphabets.letters : AngolaAlphabets.digits,
-            box: PlateBox(centre - row.pitch, row.cy - row.box / 2, 2 * row.pitch, row.box),
+            alphabet: letters
+                ? AngolaAlphabets.letters
+                : AngolaAlphabets.digits,
+            box: PlateBox(
+              centre - row.pitch,
+              row.cy - row.box / 2,
+              2 * row.pitch,
+              row.box,
+            ),
             length: 2,
             spacing: max(0, row.pitch - 0.6 * 0.72 * row.box),
           ),

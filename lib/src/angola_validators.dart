@@ -21,7 +21,8 @@ class AngolaValidator extends GatedPlateValidator {
     if (!_letters(entry.group('region'))) {
       return const PlateValidation.invalid(reasonRegion);
     }
-    if (!isDigitsOfLength(entry.group('first'), 2) || !isDigitsOfLength(entry.group('second'), 2)) {
+    if (!isDigitsOfLength(entry.group('first'), 2) ||
+        !isDigitsOfLength(entry.group('second'), 2)) {
       return const PlateValidation.invalid(reasonDigits);
     }
     if (!_letters(entry.group('suffix'))) {
