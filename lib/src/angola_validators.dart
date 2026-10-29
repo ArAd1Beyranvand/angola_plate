@@ -1,5 +1,8 @@
 import 'package:plate_core/plate_core.dart';
 
+// TODO(py): [D4-code] hand-port; reason strings are the contract, keep them byte-identical.
+// TODO(ts): [D4-code] hand-port; reason strings are the contract, keep them byte-identical.
+// TODO(kt): [D4-code] hand-port; reason strings are the contract, keep them byte-identical.
 /// Judges AA-##-##-AA: a two-letter region code, two pairs of digits and two
 /// letters. Reports, never bars a keystroke.
 class AngolaValidator extends GatedPlateValidator {
@@ -12,6 +15,9 @@ class AngolaValidator extends GatedPlateValidator {
   static const String reasonDigits = 'The number is two pairs of digits.';
   static const String reasonSuffix = 'The series is two letters.';
 
+  // TODO(py): [H9] Python re: \d/\w match Unicode; keep explicit [0-9]/[A-Z] classes (or re.ASCII).
+  // TODO(ts): [H9] same flavour as Dart; port as is, cover accept/reject in the vectors (D9).
+  // TODO(kt): [H9] Regex engine differs per target (JVM/JS/Native): keep to portable syntax.
   static final RegExp _pair = RegExp(r'^[A-Z]{2}$');
 
   static bool _letters(String s) => _pair.hasMatch(s);
