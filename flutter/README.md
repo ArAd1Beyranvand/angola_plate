@@ -6,13 +6,24 @@ GO VEGAN 🌱
 
 From the mighty people of Iran to the steadfast people of Angola to view examples:
 
-https://platexample.ir/#/discover/angola
+https://platexample.ir/#/discover/angola:flutter
 
 # angola_plate
 
-Angola's licence plates for the `plate_core` library. The 1996 white-on-black series in its one-row and two-row designs, a theme each, Latin alphabets and an advisory validator.
+Angola's licence plates for the plate_core library — the 1996 white-on-black series, themes, alphabets, advisory validator.
 
-## Install
+## Languages
+
+| Language | Folder | Example |
+| --- | --- | --- |
+| Flutter / Dart | [`flutter/`](https://github.com/ArAd1Beyranvand/angola_plate/tree/main/flutter) | [platexample](https://platexample.ir/#/discover/angola:flutter) |
+| Kotlin | [`kotlin/`](https://github.com/ArAd1Beyranvand/angola_plate/tree/main/kotlin) | [platexample](https://platexample.ir/#/discover/angola:kotlin) |
+| Python | [`python/`](https://github.com/ArAd1Beyranvand/angola_plate/tree/main/python) | [platexample](https://platexample.ir/#/discover/angola:python) |
+| TypeScript | [`typescript/`](https://github.com/ArAd1Beyranvand/angola_plate/tree/main/typescript) | [platexample](https://platexample.ir/#/discover/angola:typescript) |
+
+## Quick start
+
+### Install
 
 ```yaml
 dependencies:
@@ -20,7 +31,7 @@ dependencies:
   angola_plate: ^0.1.0
 ```
 
-## Use
+### Use
 
 ```dart
 import 'package:plate_core/plate_core.dart';
@@ -35,12 +46,26 @@ PlateCanvas(
 );
 ```
 
-## Contains
+## Specs
 
-- `AngolaCountry` — country panel: `angola`.
-- `AngolaPlates` — 2 plate specs: `standard`, `stacked`.
-- `AngolaThemes` — 2 themes: `standard`, `stacked`.
-- `AngolaValidator` — advisory validator; flags the frame, never blocks a keystroke.
+Each spec is one plate layout.
+
+- `AngolaPlates.standard`
+- `AngolaPlates.stacked`
+
+## Themes
+
+- `AngolaThemes.standard`
+- `AngolaThemes.stacked`
+
+## Change it
+
+`PlateCanvas` takes `spec:` (an entry of `AngolaPlates`) and `theme:` (an entry of `AngolaThemes`). Set `validator:` to `AngolaValidator()` and `autoValidate: true` to show validation hints.
+
+## Also included
+
+- `AngolaCountry` — the country panel.
+- `AngolaValidator` — the plate validator.
 
 ## Plates
 
@@ -54,3 +79,6 @@ Both pair with the theme in `themeOf`. The earlier AAA-##-## series and the
 
 Painted by [`plate_core`](https://pub.dev/packages/plate_core); alphabets shared through [`plate_alphabet`](https://pub.dev/packages/plate_alphabet); optional character picker in [`plate_keypad`](https://pub.dev/packages/plate_keypad).
 
+## License
+
+See [LICENSE](https://github.com/ArAd1Beyranvand/angola_plate/blob/main/LICENSE).

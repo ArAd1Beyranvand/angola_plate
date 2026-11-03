@@ -6,7 +6,6 @@ import 'angola_colors.dart';
 abstract final class AngolaCountry {
   static const PlateCountry angola = PlateCountry(
     code: 'ao',
-    captionLines: <String>[],
     panelColor: AngolaColors.black,
     panelTextColor: AngolaColors.white,
   );
